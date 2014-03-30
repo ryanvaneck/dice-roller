@@ -1,0 +1,143 @@
+
+.dot1{
+    position:absolute;
+    top:38px;
+    left:38px;
+}
+.dot21{
+    position:absolute;
+    top:8px;
+    left:8px;
+}
+.dot22{
+    position:absolute;
+    bottom:8px;
+    right:8px;
+}
+.dot31{
+    position:absolute;
+    top:8px;
+    left:8px;
+}
+.dot32{
+    position:absolute;
+    top:38px;
+    left:38px;
+}
+.dot33{
+    position:absolute;
+    bottom:8px;
+    right:8px;
+}
+.dot41{
+    position:absolute;
+    top:8px;
+    left:8px;
+}
+.dot42{
+    position:absolute;
+    right:8px;
+    top:8px;
+}
+.dot43{
+    position:absolute;
+    bottom:8px;
+    left:8px;
+}
+.dot44{
+    position:absolute;
+    bottom:8px;
+    right:8px;
+}
+.dot51{
+    position:absolute;
+    top:8px;
+    left:8px;
+}
+.dot52{
+    position:absolute;
+    right:8px;
+    top:8px;
+}
+.dot53{
+    position:absolute;
+    top:38px;
+    left:38px;
+}
+.dot54{
+    position:absolute;
+    bottom:8px;
+    left:8px;
+}
+.dot55{
+    position:absolute;
+    bottom:8px;
+    right:8px;
+}
+.dot61{
+    position:absolute;
+    top:8px;
+    left:8px;
+}
+.dot62{
+    position:absolute;
+    top:8px;
+    right:8px;
+}
+.dot63{
+    position:absolute;
+    left:8px;
+    top:38px;
+}
+.dot64{
+    position:absolute;
+    top:38px;
+    right:8px;
+}
+.dot65{
+    position:absolute;
+    bottom:8px;
+    left:8px;
+}
+.dot66{
+    position:absolute;
+    bottom:8px;
+    right:8px;
+}
+
+.holder1{
+	
+	height:125px;
+	width:120px;
+	float:left;
+}
+.holder2{
+	
+	height:125px;
+	width:120px;
+	float:left;
+}
+.holder3{
+	
+	height:125px;
+	width:120px;
+	float:left;
+}
+.holder4{
+	
+	height:125px;
+	width:120px;
+	float:left;
+}
+.holder5{
+	
+	height:125px;
+	width:120px;
+	float:left;
+}
+.holder6{
+	
+	height:125px;
+	width:120px;
+	float:left;
+}

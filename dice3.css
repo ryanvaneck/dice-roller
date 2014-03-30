@@ -1,0 +1,70 @@
+
+.die{
+    
+    border-radius:10px;
+    width:100px;
+    height:100px;
+    position:relative;
+    margin:10px;
+    float:left;
+    background: #82F5ED;
+	box-shadow:2px 1px 8px #111111;
+}
+/*rgb(226, 232, 55);*/
+.dot{
+    background-color:#E7E8D3;
+    color:black;
+    border-radius:12px;
+    width:24px;
+    height:24px;
+    box-shadow:  inset 2px 1px 8px #111111;
+}
+.held{
+	background: red;
+	box-shadow:  inset 2px 1px 8px #111111;
+}
+	
+
+.hidden{display:none;}
+#buttons{
+	clear:left;   
+    width:400px;
+    
+}   
+#box{
+    height:126.5px;
+    width:732px;
+	float:left;
+	
+}
+.clicked{
+	background-color: red;
+}	
+.border{border: solid 2px; }
+#totaldisplay{
+	font-size:50px;
+	margin-top:-4px;
+}
+#helddisplay{
+	font-size:50px;
+	color:red;
+}
+#rolleddisplay{
+	font-size:50px;
+	color: #82F5ED;
+}	
+#displaybox{
+    
+
+	width: 70px;
+	height: 127px;
+	float:left;
+}	
+.dnumber{
+
+	padding-bottom:3px;	
+
+	margin-bottom:10px;
+	margin-left:3px;
+	height:30px;
+}	
