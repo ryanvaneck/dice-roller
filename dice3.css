@@ -8,7 +8,7 @@
     margin:10px;
     float:left;
     background: #82F5ED;
-	box-shadow:2px 1px 8px #111111;
+    box-shadow:2px 1px 8px #111111;
 }
 /*rgb(226, 232, 55);*/
 .dot{
@@ -20,8 +20,10 @@
     box-shadow:  inset 2px 1px 8px #111111;
 }
 .held{
-	background: red;
+	background: /*red;*/;
 	box-shadow:  inset 2px 1px 8px #111111;
+	/*position:relative;
+	top:15px;*/
 }
 	
 

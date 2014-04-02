@@ -1,0 +1,14 @@
+.dieNumber{
+    text-align: center;
+    font-family: futura;
+    font-size: 55px;
+    margin-top: 15px;
+} 
+
+.board{
+    clear:both;
+    border:solid 1px black;
+    height:
+}
+
+.clearfix{float:none;clear:both}
