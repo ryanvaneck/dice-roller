@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	this.draw = function(id){
 	    var html = document.createElement('div');
 	    html.className = ('die die'+this.count);
+	    //html.setAttribute('onclick' , this.id + '.toggleHold()');
 	    if(id) html.id = id;
 	    if(count < 7){
 		for(var i=1;i<=this.count;i++){
@@ -24,9 +25,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	    return html;
 	}
 	this.hold = function(){
-	    this.held = true;
-	    document.getElementById(this.id).classList.add('held');
-	    this.board.countDots();
+	    if(this.isSet == true){
+		this.held = true;
+		document.getElementById(this.id).classList.add('held');
+		this.board.countDots();
+	    }
 	}
 	this.unHold = function(){
 	    this.held = false;
@@ -63,10 +66,16 @@ document.addEventListener("DOMContentLoaded", function() {
 	    var html = document.createElement('div');
 	    html.className = 'board';
 	    html.id = this.id;
-	    html.innerHTML = "<div id='"+this.id+"-counts'>";
-	    html.innerHTML +="<span>total:</span><div id='"+this.id+"-totalCount'></div>";
-	    html.innerHTML +="<span>held:</span><div id='"+this.id+"-heldCount'></div></div>";
-	    html.innerHTML += "<div class='clearfix'></div>";
+	    var inner =  "<div id='"+this.id+"-counts' class='countBox'>";
+	    inner +="<span>total:</span><div  id='"+this.id+"-totalCount'></div>";
+	    inner +="<span>held:</span><div id='"+this.id+"-heldCount'></div></div>";
+	    inner += "<div class='controls' id='"+this.id+"-controls'>";
+	    inner += "<button id='"+this.id+"'-roll' onclick='"+this.id+".rollAll(40)'>Roll</button>";
+	    inner += "<button id='"+this.id+"'-clearAll' onclick='"+this.id+".empty()'>Clear All</button>";
+	    inner += "<button id='"+this.id+"'-addOne' onclick='"+this.id+".addDie()'>Add One</button>";
+	    inner += "<button id='"+this.id+"'-clearOne' onclick='"+this.id+".removeDie()'>Clear One</button></div>";
+	    inner += "<div class='clearfix'></div>";
+	    html.innerHTML = inner;
 	    where.appendChild(html);
 	}
 	this.addDie = function(count){
@@ -75,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	    var die = new Die(count);
 	    die.board = this;
 	    this.dice.push(die);
-	    var id = Math.round(Math.random()*1000000);
+	    var id = 'die'+Math.round(Math.random()*1000000);
 	    document.getElementById(this.id).appendChild(die.draw(id));
 	    this.countDots();
 	    return this;
@@ -101,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		    boardEl.appendChild(boardChildren[i]);
 	    }
 	    return this.totalCount;
+
 	}
 	this.removeDie = function(index){
 	    if(index==undefined)
@@ -150,8 +160,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	this.rollAll = function(rollTime){
 	    var board = this;
 	    this.dice.forEach(function(die,index){
-		board.rollOne(index,rollTime+index*300);
+		board.rollOne(index,rollTime+index*100);
 	    });
+	    var hat = window.setTimeout(function(){
+		t();
+	    } ,  rollTime * 100);
 	}
     }
 /*
@@ -170,6 +183,7 @@ while(wrap.firstChild) wrap.removeChild(wrap.firstChild
     c.addDie(2);
     c.addDie(1);
 
+t = function(){
     [].forEach.call(document.querySelectorAll('.die'), function(el) {
 	el.addEventListener('click', function() {
 	    console.log('click');
@@ -182,8 +196,12 @@ while(wrap.firstChild) wrap.removeChild(wrap.firstChild
 		}
 	    });
 	})
-    });    
-
-
+    }); 
+    console.log('ran t()');
+}
+t()
+//    document.getElementsByClassName('die').onclick(function(el){
+//	console.log(el);
+//    });
 });
 var doc = document;

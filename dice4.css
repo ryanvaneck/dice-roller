@@ -12,3 +12,5 @@
 }
 
 .clearfix{float:none;clear:both}
+
+.countBox div{display:inline}

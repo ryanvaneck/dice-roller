@@ -4,11 +4,12 @@
     border-radius:10px;
     width:100px;
     height:100px;
-    position:relative;
+    position:relative; /* dots are absolute positioned to dice */
     margin:10px;
-    float:left;
+/*    float:left; */
     background: #82F5ED;
     box-shadow:2px 1px 8px #111111;
+    display:inline-block;
 }
 /*rgb(226, 232, 55);*/
 .dot{
@@ -42,7 +43,7 @@
 .clicked{
 	background-color: red;
 }	
-.border{border: solid 2px; }
+.border{border: solid 1px black; }
 #totaldisplay{
 	font-size:50px;
 	margin-top:-4px;
