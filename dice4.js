@@ -29,16 +29,20 @@ document.addEventListener("DOMContentLoaded", function() {
 		this.held = true;
 		document.getElementById(this.id).classList.add('held');
 		this.board.countDots();
+		console.log('holding');
 	    }
 	}
 	this.unHold = function(){
 	    this.held = false;
 	    document.getElementById(this.id).classList.remove('held');
+	    console.log('unholding')
 	    this.board.countDots();
+	    
 	}
 	this.toggleHold = function(){
-	    if(this.held == true)
+	    if(this.held == true){
 		this.unHold();
+	    }
 	    else{
 		this.hold();
 	    }
@@ -87,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	    var id = 'die'+Math.round(Math.random()*1000000);
 	    document.getElementById(this.id).appendChild(die.draw(id));
 	    this.countDots();
+	    document.getElementById(id).addEventListener('click' , function(){
+		die.toggleHold();
+	    });
 	    return this;
 	}
 	
@@ -100,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	    });
 	    this.totalCount = count;
 	    this.heldCount = heldCount;
-	    console.log(this.totalCount+ '  '+ this.heldCount);
+	    //console.log(this.totalCount+ '  '+ this.heldCount);
 	    document.getElementById(this.id + '-totalCount').innerHTML = this.totalCount;
 	    document.getElementById(this.id + '-heldCount').innerHTML = this.heldCount;
 	    var boardEl = document.getElementById(this.id);
@@ -138,10 +145,20 @@ document.addEventListener("DOMContentLoaded", function() {
 	    var random = Math.floor(Math.random()*this.maxCount)+1;
 	    die.changeCount(random);
 	    var old = document.getElementById(die.id);
-	    var parent = old.parentNode;
+	    /*
+	    while(old.children)
+		old.removeChild(old.firstChild)*/
+	    for(var i=0;i<=old.children.length;i++){
+		old.removeChild(old.firstChild)
+	    }
+	    var newInner = die.draw(die.id).innerHTML;
+	    old.innerHTML = newInner;
+	    this.countDots;
+	    return (this);
+	    /*var parent = old.parentNode;
 	    parent.replaceChild(die.draw(die.id),old);
 	    this.countDots();
-	    return (this);
+	    return (this);*/
 	}
 	
 	this.rollOne =  function(index,rollTime){
@@ -159,19 +176,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	this.rollAll = function(rollTime){
 	    var board = this;
+	    var countDice = 0
 	    this.dice.forEach(function(die,index){
 		board.rollOne(index,rollTime+index*100);
 	    });
-	    var hat = window.setTimeout(function(){
-		t();
-	    } ,  rollTime * 100);
 	}
-    }
-/*
-var wrap = document.getElementById("wrap");
-while(wrap.firstChild) wrap.removeChild(wrap.firstChild
-
-*/
+}
     b = new Board('b', 6);
     b.draw(document.body);
     b.addDie(1);
@@ -182,26 +192,26 @@ while(wrap.firstChild) wrap.removeChild(wrap.firstChild
     c.addDie(3);
     c.addDie(2);
     c.addDie(1);
-
+/*
 t = function(){
     [].forEach.call(document.querySelectorAll('.die'), function(el) {
-	el.addEventListener('click', function() {
+	function clickHold(){
 	    console.log('click');
 	    var boardId = el.parentNode.id;
 	    var dieId = el.id;
+	    console.log(dieId);;
 	    eval(boardId).dice.forEach(function(die){
 		if(die.id == dieId){
 		    die.toggleHold();
-		    return
 		}
 	    });
-	})
+	}
+	el.removeEventListener('click' , clickHold);
+	el.addEventListener('click', clickHold);
     }); 
     console.log('ran t()');
 }
-t()
-//    document.getElementsByClassName('die').onclick(function(el){
-//	console.log(el);
-//    });
+*/
+
 });
 var doc = document;

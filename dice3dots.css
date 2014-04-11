@@ -1,9 +1,10 @@
 
-.dot1{
+.dot11,.dot1{
     position:absolute;
     top:38px;
     left:38px;
 }
+
 .dot21{
     position:absolute;
     top:8px;
